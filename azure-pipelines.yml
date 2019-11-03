@@ -23,7 +23,7 @@ steps:
 
 - task: BatchScript@1
   inputs:
-    filename: 'src/PokerLeagueManager.UI.Web/BuildAngular.bat'
+    filename: '$(Build.SourcesDirectory)\src\PokerLeagueManager.UI.Web\BuildAngular.bat'
 
 - task: VSBuild@1
   inputs:
@@ -48,13 +48,13 @@ steps:
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\deploy'
     Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/deploy'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\deploy'
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\src\PokerLeagueManager.Utilties\bin\$(buildConfiguration)'
     Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/Utility'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\Utility'
 
 - task: PublishBuildArtifacts@1
   inputs:
